@@ -80,10 +80,12 @@ async function deleteUser(id){
 
 async function deleteImg(img){
     try{
-        const oldFile = await gfs.find({filename: img}).toArray();
-
-        if(oldFile && oldFile.length !== 0) {
-            gfs.delete(oldFile[0]._id)
+        if(img !== "1715341086428.png"){
+            const oldFile = await gfs.find({filename: img}).toArray();
+    
+            if(oldFile && oldFile.length !== 0) {
+                gfs.delete(oldFile[0]._id)
+            }
         }
     }catch (error) {
         throw new Error(error.message);

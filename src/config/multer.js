@@ -15,7 +15,7 @@ const storage =  new GridFsStorage({
         }
 
         return {
-            bucketName: file.fieldname,
+            bucketName: 'avatars',
             filename: Date.now() + extname(file.originalname),
         };
     },

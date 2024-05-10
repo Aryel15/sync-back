@@ -64,7 +64,12 @@ function findById(req, res){
 async function create(req, res){
     const { nome, idade, rua, bairro, estado, biografia, email, senha } =  req.body
     const file = req.file
-    const avatar = file.filename
+    let avatar
+    if(file){
+        avatar = file.filename
+    }else{
+        avatar = "1715341086428.png"
+    }
 
     const senhaHash = bcrypt.hashSync(senha, 8)
     
